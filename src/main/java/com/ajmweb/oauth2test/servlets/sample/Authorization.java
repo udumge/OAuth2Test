@@ -54,14 +54,16 @@ public class Authorization extends HttpServlet {
             
             // 仕様として、oauth clientは全てサーバに事前登録されているべきである
             // 本サンプルでは、DBとかに登録するのが面倒なので決め打ちのクライアントとする
-            ClientMangager cm = new ClientMangager();
+            ClientManager cm = new ClientManager();
             cm.verifyClient(oauthRequest);
             
             // 問題ない場合は、Authorization Codeを返却する
             // codeは本来、動的に推測不可のコードを生成すべき
+            CodeManager code = new CodeManager();
+
             OAuthResponse oauthResponse = OAuthASResponse
                     .authorizationResponse(request,HttpServletResponse.SC_FOUND)
-                    .setCode("TESTCODE")
+                    .setCode(code.issueCode(oauthRequest.getClientId()))
                     .location(oauthRequest.getRedirectURI())
                     .buildQueryMessage();
             

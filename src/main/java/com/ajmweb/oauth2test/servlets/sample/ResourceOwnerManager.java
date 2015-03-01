@@ -5,6 +5,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * manage Resource Owner
  * Created by udumbara on 2015/02/15.
  */
 public class ResourceOwnerManager {
@@ -15,6 +16,6 @@ public class ResourceOwnerManager {
         // 本来ならCookieとかでユーザの認証状態を確認するが、本サンプルでは特に認証しない
         // 頑張って作って欲しい
 
-        Logger.getLogger(Authorization.class.getName()).log(Level.INFO,"This user is authorized");
+        Logger.getLogger(ResourceOwnerManager.class.getName()).log(Level.INFO,"This user is authorized");
     }
 }

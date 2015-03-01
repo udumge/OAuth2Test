@@ -17,6 +17,10 @@
         <servlet-name>Authorization</servlet-name>
         <servlet-class>com.ajmweb.oauth2test.servlets.sample.Authorization</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AccessToken</servlet-name>
+        <servlet-class>com.ajmweb.oauth2test.servlets.sample.AccessToken</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -28,6 +32,10 @@
     <servlet-mapping>
         <servlet-name>Authorization</servlet-name>
         <url-pattern>/Authorization</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccessToken</servlet-name>
+        <url-pattern>/AccessToken</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
