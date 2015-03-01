@@ -16,10 +16,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
+ * issue Access Token
  * Created by udumbara on 2015/02/21.
  */
 @WebServlet(name = "AccessToken")
@@ -58,8 +57,7 @@ public class AccessToken extends HttpServlet {
             oauthRequest = new OAuthTokenRequest(request);
 
             // クライアントの認証をしなければならない
-            // RFCのサンプルはBasic認証を実施している
-            // それ以外でも良いとある
+            // Basic認証の方式は必須、それ以外にボディのパラメータとして渡しても良い
             validateClient(oauthRequest);
 
             // コードが対象のクライアントに発行されたものであることを確認しなければならない

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <title>Authorization</title>
+    <script type="text/javascript" language="JavaScript">
+        function submitAuthorize() {
+            var reqVal = document.req.request_url.value;
+            document.access_token.action = reqVal;
+            var selObject = document.req.method;
+            var selIndex = selObject.selectedIndex;
+            document.access_token.method = selObject[selIndex].value;
+        }
+    </script>
+</head>
+<body>
+<form action="#" name="req">
+<label>Request URI</label>
+<input type="url" name="request_url" value="http://localhost:8080/AccessToken">
+<br>
+<label>METHOD</label>
+<select name="method">
+    <option value="GET">GET</option>
+    <option value="POST">POST</option>
+</select><br>
+</form>
+<form action="" method="" enctype="application/x-www-form-urlencoded" name="access_token">
+
+    <label>grant_type</label>
+    <input type="text" name="grant_type" value="authorization_code">
+    <br>
+    <label>code</label>
+    <input type="text" name="code" value="TESTCODE">
+    <br>
+    <label>redirect_uri</label>
+    <input type="url" name="redirect_uri" value="https://localhost:8080/">
+    <br>
+    <label>client_id</label>
+    <input type="text" name="client_id" value="AAA">
+    <br>
+    <label>client_secret</label>
+    <input type="text" name="client_secret" value="BBB">
+    <br>
+    <input type="submit" value="submit" onclick="submitAuthorize()">
+</form>
+</body>
+</html>

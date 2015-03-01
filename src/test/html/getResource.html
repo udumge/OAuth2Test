@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="ja">
+    <meta charset="UTF-8">
+    <title>Authorization</title>
+    <script type="text/javascript" language="JavaScript">
+        function submitAuthorize() {
+            var reqVal = document.req.request_url.value;
+            document.access_resource.action = reqVal;
+            var selObject = document.req.method;
+            var selIndex = selObject.selectedIndex;
+            document.access_resource.method = selObject[selIndex].value;
+        }
+    </script>
+</head>
+<body>
+<form action="#" name="req">
+<label>Request URI</label>
+<input type="url" name="request_url" value="http://localhost:8080/AccessResource">
+<br>
+<label>METHOD</label>
+<select name="method">
+    <option value="GET">GET</option>
+    <option value="POST">POST</option>
+</select><br>
+</form>
+<form action="" method="" enctype="application/x-www-form-urlencoded" name="access_resource">
+
+    <label>access_token</label>
+    <input type="text" name="access_token" value="5ea3656deac632ff64905584026e7e2c">
+    <br>
+    <input type="submit" value="submit" onclick="submitAuthorize()">
+</form>
+</body>
+</html>
