@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:63342/" />
+<title>OAuth2Sample-Authorization</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">OAuth2Sample-Authorization</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/OAuth2Test/src/test/html/authorize.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=request_url</td>
+	<td>http://localhost:8080/Authorization</td>
+</tr>
+<!--GET/POSTどちらもサポートしていれば自由に選択できる-->
+<tr>
+	<td>select</td>
+	<td>name=method</td>
+	<td>GET</td>
+</tr>
+<!--登録時のclient_idを指定する-->
+<tr>
+	<td>type</td>
+	<td>name=client_id</td>
+	<td>AAA</td>
+</tr>
+<!--authorization_codeの場合は、必ずcode-->
+<tr>
+	<td>type</td>
+	<td>name=response_type</td>
+	<td>code</td>
+</tr>
+<!--登録時の指示に従う、認可コードの受け取り先URIを指定する-->
+<tr>
+	<td>type</td>
+	<td>name=redirect_uri</td>
+	<td>http://localhost:8080/</td>
+</tr>
+<!--サーバ側の指示に従って、取得するリソースにふさわしいスコープを指定する-->
+<tr>
+	<td>type</td>
+	<td>name=scope</td>
+	<td>test</td>
+</tr>
+<!--stateは（サーバ側がきちんとサポートしていれば）そのままの値がAuthorizationの返却値に返却される。処理上必要な情報を引き継ぎしたい場合などに利用する-->
+<tr>
+	<td>type</td>
+	<td>name=state</td>
+	<td>state test</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyLocation</td>
+	<td>http://localhost:8080/?code=TESTCODE&amp;state=state+test</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:63342/" />
+<title>OAuth2Sample-Resource</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">OAuth2Sample-Resource</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/OAuth2Test/src/test/html/getResource.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=request_url</td>
+	<td>http://localhost:8080/AccessResource</td>
+</tr>
+<!--リクエスト時の仕様は、リソースを管理しているサーバによって異なる-->
+<tr>
+	<td>select</td>
+	<td>name=method</td>
+	<td>POST</td>
+</tr>
+<!--Tokenで取得したトークンを指定する。このサンプルはbodyで投げさせているが、HTTP Authorizationヘッダで投げる方が推奨のはず-->
+<tr>
+	<td>type</td>
+	<td>name=access_token</td>
+	<td>5ea3656deac632ff64905584026e7e2c</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyBodyText</td>
+	<td>{&quot;UserData&quot; : &quot;Accept&quot;}</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
